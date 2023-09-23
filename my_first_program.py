@@ -195,7 +195,6 @@
 #     print('Равнобедренный')
 
 
-
 # a=int(input())
 # b=int(input())
 # c=int(input())
@@ -205,7 +204,6 @@
 #     print(b)
 # else:
 #     print(c)
-
 
 
 # a=int(input())
@@ -259,7 +257,7 @@
 
 # n=int(input())
 # if (0<=n<=36):
-#     if n==0: 
+#     if n==0:
 #         print('зеленый')
 #     elif ((n%2==0) and ((1<=n<=10) or (19<=n<=28))) or ((n%2>0) and ((11<=n<=18) or (29<=n<=36))):
 #         print('черный')
@@ -312,7 +310,6 @@
 # # НЕСТЫКОВКА
 # if (b1<a2) or (b2<a1):
 #     print('пустое множество')
-
 
 
 # x=int(input())
@@ -439,7 +436,6 @@
 #     print('Число неинтересное')
 
 
-
 # a=float(input())
 # b=float(input())
 # c=float(input())
@@ -526,7 +522,6 @@
 #     print(((-b)+(D**0.5))/(2*a))
 # if D<0:
 #     print('Нет корней')
-
 
 
 # import math
@@ -655,18 +650,15 @@
 # print(sum)
 
 
-# x=int(input())
-# max=0
-# premax=0
+# x = int(input())
+# max = 0
+# premax = 0
 # for i in range(x):
-#     n=int(input())
-#     if n>premax:
-#         max=premax
-#         max=n
-#     elif n>max:
-#         max=n
+#     n = int(input())
+#     if n > premax:
+#         max = premax
+#         max = n
+#     elif n > max:
+#         max = n
 # print(max)
 # print(premax)
-
-# Калькулятор
-while True: print(eval(input('')))
