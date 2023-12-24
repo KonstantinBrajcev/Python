@@ -1,3 +1,6 @@
+from hmac import new
+import random
+import re
 # -------------------------------
 # Задача №1
 # n = 123
@@ -178,3 +181,226 @@
 #             else:
 #                 summ += (j+1)
 # print("Стоимость слова: ", summ)
+
+
+# Задача №1
+# Даны два неупорядоченных набора целых чисел (может быть, с повторениями).
+# Выдать без повторений в порядке возрастания все те числа, которые встречаются в обоих наборах.
+# На вход подается 2 числа через пробел: n - кол-во элементов первого множества. m - кол-во элементов второго множества.
+# Затем подаются элементы каждого множества через пробел в виде строки.
+# def Rand():
+#     return random.randrange(1, 100)
+
+
+# n = int(input("Введите количество элементов N : "))
+# list_N = str(Rand())  # Создаем первй текстовый список
+# for _ in range(n-1):
+#     list_N = list_N + " " + str(Rand())  # вводим рандомные цифры
+# arr_N = list_N.split(" ")  # создаем первый текстовый массив
+# print(arr_N)
+
+# m = int(input("Введите количество элементов M : "))
+# list_M = str(Rand())  # создаем второй текстовый список
+# for _ in range(m-1):
+#     list_M = list_M + " " + str(Rand())  # вводим рандомные цифры
+# arr_M = list_M.split(" ")  # создаем второй текстовый массив
+# print(arr_M)
+
+# list_S = list_N + " " + list_M    # создаем объединенный текстовый список
+# arr_New = list_S.split(" ")  # создаем объединенный текстовый массив
+# my_numbers = [int(x) for x in arr_New]  # создаем объединенный цифровой массив
+
+# for i in range(1, len(my_numbers)):     # сортируем по возрастанию
+#     for j in range(1, len(my_numbers)):
+#         if (my_numbers[j-1] > my_numbers[j]):
+#             temp = my_numbers[j]
+#             my_numbers[j] = my_numbers[j-1]
+#             my_numbers[j-1] = temp
+
+# print(my_numbers)
+
+
+# def Sort(numbers):    # метод удаления повторяющихся цифр
+#     for i in range(1, len(numbers)):
+#         if numbers[i-1] == numbers[i]:
+#             numbers.pop(i)
+#             Sort(numbers)
+#             return numbers
+
+
+# my_numbers = Sort(my_numbers)  # Удаляем повторяющиеся цифры
+
+# print(my_numbers)
+
+# Задача №2
+# написать программу, которая определит максимальное число ягод, которое может собрать один собирающий модуль за один заход,
+# находясь перед некоторым кустом грядки.
+# На вход программе подается список arr, где arr[i] (1 ≤ arr[i] ≤ 1000) - урожайность i-го куста черники.
+# Размер списка не превышает 1000 элементов.
+# Программа должна вывести одно целое число - максимальное количество ягод, которое может собрать собирающий модуль,
+# находясь перед некоторым кустом грядки.
+# arr = [16, 42, 23, 14, 25, 16, 7, 39, 12, 22, 55, 78]
+# print(arr)
+# summElements = 0
+# maxSummElements = 0
+# for i in range(2, len(arr)):
+#     summElements = arr[i] + arr[i-1] + arr[i-2]
+#     if maxSummElements < summElements:
+#         maxSummElements = summElements
+
+# print(maxSummElements)
+
+
+# # ДЛЯ ГОВНОТЕРМИНАЛА
+# var1 = '4 4'
+# var2 = '5 6 7 8'
+# var3 = '6 7 8 9'
+# list2 = var2.split()
+# list3 = var3.split()
+# # Преобразовать списки в множества
+# set2 = set(list2)
+# set3 = set(list3)
+# # Найти пересечение множеств
+# result_set = set2.intersection(set3)
+# # Преобразовать множество в список и отсортировать
+# result_list = sorted(list(result_set))
+# result_list = " ".join(result_list)
+# # Вывести результат
+# print(result_list)
+
+
+# a = 3
+# b = 10
+# def sum(n, m):
+#     if m == 0:
+#         return n
+#     return sum(n, m-1)+1
+# n = sum(a, b)
+# print(n)
+
+
+# Определить индексы элементов массива (списка), значения которых принадлежат заданному диапазону
+# (т.е. не меньше заданного минимума и не больше заданного максимума).
+# На вход подается список с элементами list_1 и границы диапазона в виде чисел min_number, max_number.
+# list_1 = [-5, 9, 0, 3, -1, -2, 1, 4, -2, 10, 2, 0, -9, 8, 10, -9, 0, -5, -5, 7]
+# min_number = 0
+# max_number = 10
+
+# for i in range(0, len(list_1)):
+#     if (list_1[i] >= min_number):
+#         if (list_1[i] <= max_number):
+#             print(i)
+
+
+# def func(min_number, max_number, i):
+#     if (i <= len(list_1)-1):
+#         if (max_number >= list_1[i] >= min_number):
+#             print(i)
+#             func(min_number, max_number, i+1)
+#         else:
+#             func(min_number, max_number, i+1)
+#     else:
+#         return
+
+
+# func(min_number, max_number, 0)
+# Заполните массив элементами арифметической прогрессии.
+# Её первый элемент a1 , разность d и количество элементов n будет задано автоматически.
+# Формула для получения n-го члена прогрессии: an = a1 + (n-1) * d.
+# a1 = 5
+# d = -1
+# n = 10
+
+# a1 = 2  # первый
+# d = 3  # разница
+# n = 4  # количество
+# for i in range(a1, a1 + (n) * d, d):
+#     print(i)
+
+
+# def progress(a1, d, n):
+#     if (n > 1):
+#         progress(a1, d, n-1)
+#         return print(a1 + (n-1) * d)
+#     if (n == 1):
+#         return print(a1)
+
+
+# progress(a1, d, n)
+
+
+# Напишите функцию print_operation_table(operation, num_rows, num_columns),
+# которая принимает в качестве аргумента функцию, вычисляющую элемент по номеру строки и столбца.
+# Аргументы num_rows и num_columns указывают число строк и столбцов таблицы, которые должны быть распечатаны.
+# Нумерация строк и столбцов идет с единицы (подумайте, почему не с нуля).
+# Если строк меньше двух, выдайте текст
+# ОШИБКА! Размерности таблицы должны быть больше 2!.
+# Примечание: бинарной операцией называется любая операция, у которой ровно два аргумента, как, например, у операции умножения.
+
+# def print_operation_table(operation, num_rows, num_columns):
+#     if (num_rows < 2):
+#         print("ОШИБКА! Размерности таблицы должны быть больше 2!")
+#     else:
+#         #  Первая строка
+#         row = []
+#         for i in range(1, num_rows+1):
+#             row.append(str(i))
+#         print(" ".join(row))
+#         # Вторая и последующие строки
+#         for i in range(2, num_rows+1):
+#             row = []
+#             row.append(str(i))
+#             for j in range(2, num_columns+1):
+#                 # Вычисляем значение элемента таблицы
+#                 element = operation(i, j)
+#                 row.append(str(element))
+#             # Выводим строку таблицы на экран
+#             print(" ".join(row))
+
+# def print_operation_table(operation, num_rows, num_columns):
+#     if (num_rows >= 2 and num_columns >= 2):
+#         for i in range(1, num_rows+1):
+#             for j in range(1, num_columns+1):
+#                 if (i == 1):
+#                     print(j, end=' ')
+#                     continue
+#                 if (j == 1):
+#                     print(i, end=' ')
+#                     continue
+#                 result = operation(i, j)
+#                 print(result, end=' ')
+#             print("\t")
+#     else:
+#         print("ОШИБКА! Размерности таблицы должны быть больше 2!")
+
+
+# print_operation_table(lambda x, y: x - y, 4, 4)
+
+
+# Винни-Пух считает, что ритм есть, если число слогов (т.е. число гласных букв) в каждой фразе стихотворения одинаковое.
+# Фраза может состоять из одного слова, если во фразе несколько слов, то они разделяются дефисами.
+# Фразы отделяются друг от друга пробелами.
+# Стихотворение  Винни-Пух передаст вам автоматически в переменную stroka в виде строки.
+# В ответе напишите Парам пам-пам, если с ритмом все в порядке и Пам парам, если с ритмом все не в порядке.
+# Если фраза только одна, то ритм определить не получится и необходимо вывести: Количество фраз должно быть больше одной!.
+# stroka = 'пара-ра-рам рам-пам-папам па-ра-па-дам'
+# glasnyj = "а, у, о, ы, и, э, я, ю, ё, е"
+# fraza = stroka.split(' ')
+# slog = [0]*len(fraza)
+# yesorno = True
+# if (len(fraza) <= 1):
+#     print("Количество фраз должно быть больше одной!")
+# else:
+#     for i in range(0, len(fraza)):
+#         # print(fraza[i])
+#         for char in fraza[i]:
+#             if char.lower() in glasnyj:
+#                 slog[i] += 1
+#     # print(slog[i])
+#         if (i > 0):
+#             if (slog[i] != slog[i-1]):
+#                 yesorno = False
+#     if (yesorno == True):
+#         print("Парам пам-пам")
+#     else:
+#         print("Пам парам")

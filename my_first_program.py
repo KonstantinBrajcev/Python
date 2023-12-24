@@ -239,9 +239,9 @@
 #     print('Неверная операция')
 
 
-# a=input()
-# b=input()
-# arr = ['красный','синий','желтый']
+# a = input()
+# b = input()
+# arr = ['красный', 'синий', 'желтый']
 # if (a in arr) and (b in arr):
 #     if a == b:
 #         print(a)
@@ -662,3 +662,583 @@
 #         max = n
 # print(max)
 # print(premax)
+
+# for i in range(1, 4):
+#     for j in range(3, 5):
+#         print(i + j, end='')
+
+
+# n = int(input("Введите высоту треугольника: "))
+# number = 1
+# for i in range(1, n+1):
+#     for j in range(1, i+1):
+#         print(number, end=" ")
+#         number += 1
+#     print()
+
+# n = 5
+# # Инициализируем первые два числа последовательности
+# fib1 = 1
+# fib2 = 1
+# if (n == 1):
+#     print(fib1)
+# else:
+#     # Выводим первые два числа
+#     print(fib1, fib2, end=' ')
+# # Генерируем оставшиеся числа последовательности и выводим их
+#     for i in range(1, n):
+#         fib = fib1 + fib2
+#         print(fib, end=' ')
+#         fib1 = fib2
+#         fib2 = fib
+
+# flag = "YES"
+# for i in range(1, 11):
+#     x = int(input())
+#     if (x % 2 != 0):
+#         flag = "NO"
+#         break
+# print(flag)
+
+
+# flag = True
+# while (flag == True):
+#     x = input()
+#     if (x == "КОНЕЦ"):
+#         flag = False
+#     print(x)
+
+# flag = True
+# while (flag == True):
+#     x = int(input())
+#     if (x % 7 != 0):
+#         flag = False
+#     else:
+#         print(x)
+
+
+# flag = True
+# sum = 0
+# while (flag == True):
+#     x = int(input())
+#     if (x < 0):
+#         flag = False
+#     else:
+#         sum += x
+# print(sum)
+
+
+# flag = True
+# five = 0
+# while (flag == True):
+#     x = int(input())
+#     if (x == 5):
+#         five += 1
+#     if (x > 5):
+#         flag = False
+# print(five)
+
+
+# def min_coins(n):
+#     coins = [25, 10, 5, 1]  # доступные номиналы монет
+#     count = 0
+#     for coin in coins:
+#         while n >= coin:
+#             n -= coin
+#             count += 1
+#     return count
+
+
+# print(min_coins(int(input())))
+
+
+# x = input()
+# from tkinter import W
+
+
+# number = '6898745'
+# min = 0
+# max = 0
+# matrix = [int(digit) for digit in str(number)]
+# for i in range(len(matrix)-1, -1, -1):
+#     if matrix[i] < min:
+#         min = matrix[i]
+#     if matrix[i] > max:
+#         max = matrix[i]
+# print("Максимальная цифра равна ", max)
+# print("Минимальная цифра равна ", min)
+
+# сумму его цифр;
+# количество цифр в нем;
+# произведение его цифр;
+# среднее арифметическое его цифр;
+# его первую цифру;
+# сумму его первой и последней цифры.
+# number = '6898745'
+
+
+# mx = -10000000  # add 00000
+# s = 0
+# for i in range(0, 10):
+#     x = int(input())
+#     if x < 0:
+#         s -= x  # add -
+#     if x > mx and x < 0:  # add
+#         mx = x
+# print(s)
+# print(mx)
+# if s == 0:
+#     print("NO")  # add
+
+
+# s = 0
+# for i in range(0, 7):
+#     n = int(input())
+#     if n % 2 == 0:
+#         s += n
+# if s == 0:
+#     print(0)
+# else:
+#     print(s)
+
+# Решите уравнение в натуральных числах
+# 28n + 30k + 31m = 365.
+# m = (365 - (30 * k) - (28 * n)) / 31
+# n = (365 - (30 * k) - (31 * m)) / 28
+# k = (365 - (31 * m) - (28 * n)) / 30
+# (28 * n) + (30 * k) + (31 * m) - 365 = 0
+
+# for n in range(1, 365):
+#     for m in range(1, 365):
+#         for k in range(1, 365):
+#             if ((28 * n) + (30 * k) + (31 * m) - 365 == 0):
+#                 print('n = ', n)
+#                 print('m = ', m)
+#                 print('k = ', k)
+
+# Имеется 100 рублей. Сколько быков, коров и телят можно купить на все эти деньги,
+# если плата за быка – 10 рублей, за корову – 5 рублей, за теленка – 0.5 рубля и надо купить 100 голов скота?
+# for n in range(1, 100):
+#     for m in range(1, 100):
+#         for k in range(1, 100):
+#             if ((0.5 * n) + (5 * k) + (10 * m) - 100 == 0):
+#                 if (m + n + k == 100):
+#                     print('n = ', n)
+#                     print('m = ', m)
+#                     print('k = ', k)
+
+# Леонард Эйлер сформулировал обобщенную версию Великой теоремы Ферма, предполагая, что по крайней мере
+# n энных степеней необходимо для получения суммы, которая сама является энной степенью для n>2.
+# Напишите программу для опровержения гипотезы Эйлера и найдите четыре положительных целых числа,
+# сумма 5-х степеней которых равна 5-й степени другого положительного целого числа.
+# Таким образом, найдите пять натуральных чисел a,b,c,d,e, удовлетворяющих условию:
+# a5 + b5 + c5 + d5 = e5
+# В ответе укажите сумму a+b+c+d+e.
+
+# for e in range(144, 150):
+#     print('Пошли считать...')
+#     for a in range(1, 150):
+#         for b in range(a, 150):
+#             for c in range(b, 150):
+#                 for d in range(c, 150):
+#                     if ((a ** 5) + (b ** 5) + (c ** 5) + (d ** 5) == (e ** 5)):
+#                         # if ((((a ** 5) + (b ** 5) + (c ** 5) + (d ** 5)) ** (1/5)) == e):
+#                         print('a = ', a)
+#                         print('b = ', b)
+#                         print('c = ', c)
+#                         print('d = ', d)
+#                         print('e = ', e)
+#                         z = a+b+c+d+e
+#                         print(z)
+#                         break
+#     print('e не равно = ', e)
+
+# n = int(input())
+# number = 1
+# for i in range(1, n+1):
+#     for j in range(1, i+1):
+#         print(number, end=' ')
+#         number += 1
+#     print()
+
+# n = int(input())
+# for i in range(1, n+2):
+#     num = 1
+#     for j in range(1, i+(i-2)):
+#         if (j >= i-1):
+#             print(num, end=' ')
+#             num -= 1
+#         if (j < i-1):
+#             print(num, end=' ')
+#             num += 1
+#     print()
+
+# str = 'пипипип'
+# flag = True
+# for i in range(0, round(len(str)/2), 1):
+#     if (str[i] != str[-(i+1)]):
+#         flag = False
+# if flag == False:
+#     print("NO")
+# else:
+#     print("YES")
+
+
+# str = 'There is no such thing as an accident. What we call by that name is the effect of some cause which we do not see'
+# print(str[2])
+# print(str[len(str)-2])
+# print(str[0:5])
+# print(str[0:len(str)-2])
+# print(str[0::2])
+# print(str[1::2])
+# print(str[::-1])
+# print(str[-1:-len(str):-2])
+
+
+# print(len(str))
+# print(str*3)
+# print(str[0:1])
+# print(str[0:3])
+# print(str[len(str)-3:len(str)])
+# print(str[::-1])
+# print(str[1:len(str)-1])
+
+
+# str = 'Chris Alan'
+# arr = str.split(' ')
+# print(arr)
+# if arr[0][0] != arr[0][0].upper() or arr[1][0] != arr[1][0].upper():
+#     print("NO")
+# else:
+#     print("YES")
+
+
+# number_str = str(input())
+# # Вычисляем сумму цифр
+# digit_sum = sum(int(digit) for digit in number_str)
+# # Вычисляем количество цифр
+# digit_count = len(number_str)
+# # Вычисляем произведение цифр
+# digit_product = 1
+# for digit in number_str:
+#     digit_product *= int(digit)
+# # Вычисляем среднее арифметическое цифр
+# digit_average = digit_sum / digit_count
+# # Вычисляем первую цифру
+# first_digit = int(number_str[0])
+# # Вычисляем сумму первой и последней цифры
+# last_digit = int(number_str[-1])
+# sum_first_last_digit = first_digit + last_digit
+# print(digit_sum)
+# print(digit_count)
+# print(digit_product)
+# print(digit_average)
+# print(first_digit)
+# print(sum_first_last_digit)
+
+# def sum_of_divisors(n):
+#     divisors_sum = 0
+#     for i in range(1, n+1):
+#         if n % i == 0:
+#             divisors_sum += i
+#     return divisors_sum
+
+
+# n = 'АааГГЦЦцТТттт'
+# n = n.lower()
+# print(f'Аденин: {n.count('а')}')
+# print(f'Гуанин: {n.count('г')}')
+# print(f'Цитозин: {n.count('ц')}')
+# print(f'Тимин: {n.count('т')}')
+
+
+# n = 'Глупая критика не так заметна, как глупая похвала.'
+# n = n.lower()
+# glas = 'ауоыиэяюёе'
+# sum_glas = 0
+# soglas = 'бвгджзйклмнпрстфхцчшщ'
+# sum_soglas = 0
+# for i in range(0, len(glas)):
+#     if n.count(glas[i]):
+#         sum_glas += n.count(glas[i])
+# for i in range(0, len(soglas)):
+#     if n.count(soglas[i]):
+#         sum_soglas += n.count(soglas[i])
+# print(f'Количество гласных букв равно {sum_glas}')
+# print(f'Количество согласных букв равно {sum_soglas}')
+
+
+# Декодер в двоичную систему исчисления
+# n = int(input())
+# ostatok = ''
+# while (n >= 1):
+#     if n == 1:
+#         ostatok += str(n)
+#         break
+#     ostatok += str(n % 2)
+#     n = n // 2
+# print(ostatok[::-1])
+
+# количество вхождений в строку
+# n = 3
+# all = 0
+# for i in range(0, n):
+#     s = input()
+#     sum = 0
+#     if s.count('11'):
+#         sum += s.count('11')
+#     print(sum)
+#     if sum >= 3:
+#         all += 1
+# print(all)
+
+
+# n = 'www.stepik.org'
+# if n.endswith('.com') or n.endswith('.ru'):
+#     print("YES")
+# else:
+#     print("NO")
+
+
+# s = input()  # Ввод строки текста
+# first_h = s.find('h')  # Поиск индекса первого вхождения 'h'
+# last_h = s.rfind('h')  # Поиск индекса последнего вхождения 'h'
+# # Удаление символов между первым и последним 'h'
+# result = s[:first_h] + s[last_h+1:]
+# print(result)  # Вывод результата
+
+# a = int(input())
+# b = int(input())
+# str = ''
+# for i in range(a, b):
+#     str += (chr(i) + ' ')
+# print(str)
+
+
+# st = 'Hello world!'
+# st = [symbol for symbol in st]
+# s = ''
+# for i in range(0, len(st)):
+#     s += (str(ord(st[i])) + ' ')
+# print(s)
+
+
+# ДЕКОДИРУЕМ СТРОКИ
+# z = 14
+# n = 'fsfftsfufksttskskt'
+# n = [symbol for symbol in n]
+# stroka = ''
+# for i in range(0, len(n)):
+#     num = ord(n[i])-z
+#     if num < 97:
+#         num = 122 - (96 - num)
+#     stroka += str(chr(num))
+# print(stroka)
+
+
+# abc = 'abcdefghijklmnopqrstuvwxyz'
+# z = [symbol for symbol in abc]
+# for i in range(1, len(abc)):
+#     z[i] = z[i]*(i+1)
+# print(z)
+
+
+# n = int(input())
+# z = [int(input()) for i in range(n)]
+# z = [z[i] + z[i+1] for i in range(n-1)]
+# print(z)
+
+
+# n = int(input())
+# z = [int(input()) for i in range(n)]
+# del z[1::2]
+# print(z)
+
+
+# n = 5
+# z = [input() for i in range(n)]
+# k = 3
+# p = ''
+# for i in range(len(z)):
+#     if len(z[i]) >= k-1:
+#         p += z[i][k-1]
+# print(p)
+
+
+# n = int(input())
+# z = [input() for i in range(n)]
+# z = list(''.join(z))
+# print(z)
+
+
+# numbers = [1, 78, 23, -65, 99, 9089, 34, -32, 0, -67, 1, 11, 111]
+# z = [number**2 for number in numbers]
+# print(z)
+
+
+# n = int(input())
+# z = [int(input()) for i in range(n)]
+# print(*z, sep='\n')
+# print()
+# z1 = []
+# for i in range(n):
+#     z1.append((z[i]**2)+(2*z[i])+1)
+# print(*z1, sep='\n')
+
+# Удаление MAX и MIN
+# n = int(input())
+# z = [int(input()) for _ in range(n)]
+# z.remove(max(z))
+# z.remove(min(z))
+# print(*z, sep='\n')
+
+
+# ВЫВОДИМ УНИКАЛЬНЫЕ ЭЛЕМЕНТЫ
+# s = [input() for _ in range(int(input()))]
+# print(*[s[i] for i in range(len(s)) if s[:i].count(s[i]) == 0], sep="\n")
+
+
+# ЗАПРОС В Н СТРОК
+# s = [input() for _ in range(int(input()))]
+# print('---')
+# zap = input()
+# print('---')
+# print(*[s[i].lower() for i in range(len(s)) if zap in s[i].lower()], sep='\n')
+
+
+# s = [int(input()) for _ in range(int(input()))]
+# print(*[s[i] for i in range(len(s)) if s[i] < 0], sep='\n')
+# print(*[s[i] for i in range(len(s)) if s[i] == 0], sep='\n')
+# print(*[s[i] for i in range(len(s)) if s[i] > 0], sep='\n')
+
+
+# print(*input().split(), sep='\n')
+
+
+# n = 'Владимир Семенович Высоцкий'
+# z = n.split()
+# print(f'{z[0][:1]}.{z[1][:1]}.{z[2][:1]}.')
+
+
+# Разделитель
+# n = 'C:\Windows\System32\calc.exe'
+# n = n.split('\\')
+# print(*n, sep='\n')
+
+
+# s = input()
+# s = s.split(' ')
+# for i in range(0, len(s)):
+#     print('+'*int(s[i]))
+
+
+# ПРОверка IP адреса
+# n = input().split('.')
+# for i in range(len(n)):
+#     if int(n[i]) > 256 or int(n[i]) < 0:
+#         print("NO")
+#         break
+# else:
+#     print("YES")
+
+# Меняем Максимальный и минимальный
+# s = '10 9 8 7 6 5 4 3 2 1'.split(' ')
+# num = [int(number) for number in s]
+# min_id = num.index(min(num))
+# max_id = num.index(max(num))
+# num[min_id], num[max_id] = num[max_id], num[min_id]
+# print(*num)
+
+
+# text = 'William Shakespeare was born in the town of Stratford, England, in the year 1564. When he was a young man, Shakespeare moved to the city of London, where he began writing plays. His plays were soon very successful, and were enjoyed both by the common people of London and also by the rich and famous. In addition to his plays, Shakespeare wrote many short poems and a few longer poems. Like his plays, these poems are still famous today.'
+# s = text.lower().split(' ')
+# num = s.count('a') + s.count('an') + s.count('the')
+# print(num)
+
+# Удаление лишних коментов в коде
+# z = [input() for _ in range(0, int(input()[1:]))]
+# for i in range(len(z)):
+#     if '#' in z[i]:
+#         z[i] = z[i][:z[i].index('#')].rstrip()
+# print(*z, sep='\n')
+
+
+# Таблица ПАЛИНДРОВМОВ
+# palindromes = [i for i in range(100, 1001) if str(i)[0] == str(i)[-1]]
+# print(palindromes)
+
+# Пузырьковая сотрировка
+# a = [78, -32, 5, 39, 58, -5, -63, 57, 72, 9, 53, -1, 63, -97, -21, -94, -47, 57, -8, 60, -23, -72, -22, -79, 90, 96, -41, -71, -48, 84, 89, -96, 41, -16, 94, -60, -64, -39, 60, -14, -62, -19, -3, 32, 98, 14, 43, 3, -56,
+#      71, -71, -67, 80, 27, 92, 92, -64, 0, -77, 2, -26, 41, 3, -31, 48, 39, 20, -30, 35, 32, -58, 2, 63, 64, 66, 62, 82, -62, 9, -52, 35, -61, 87, 78, 93, -42, 87, -72, -10, -36, 61, -16, 59, 59, 22, -24, -67, 76, -94, 59]
+
+# n = len(a)
+# for i in range(0, n):
+#     k = i
+#     for j in range(i+1, n):
+#         if a[j] < a[k]:
+#             k = j
+#     a[k], a[i] = a[i], a[k]
+
+# print(a)
+
+# def merge(z):
+
+#     return z
+
+
+# n = int(input())
+# sum = 0
+# while (n > 1):
+#     sum += 1
+#     n = n / 2
+# print(sum)
+
+# def caesar(alphabet):
+#     text = input('my name is Python!')
+#     shift = ii("Shift: ")
+
+#     def get_char(char, alphabet_, shift_):
+#         if char.isalpha():
+#             i = 0
+#             if char.isupper():
+#                 i = 1
+#             return alphabet_[i][(alphabet_[i].index(char) + shift_) % len(alphabet_[0])]
+#         return char
+
+#     shifted = "".join([get_char(char, alphabet, shift) for char in text])
+#     print(shifted)
+
+
+# def english_alphabet():
+#     return "".join([chr(char) for char in range(ord("a"), ord("z") + 1)])
+
+
+# def ii(message=""):
+#     return int(input(message))
+
+
+# caesar([english_alphabet(), english_alphabet().upper()])
+
+
+# ОПРЕДЕЛЕНИЕ ЧЕТВЕРТИ ВВОДА КООРДИНАТ
+# n = int(input())
+# x = []
+# y = []
+# num1 = num2 = num3 = num4 = 0
+# for i in range(n):
+#     z = (input().split())
+#     x.append(int(z[0]))
+#     y.append(int(z[1]))
+# for i in range(n):
+#     if x[i] > 0 and y[i] > 0:
+#         num1 += 1
+#     if x[i] < 0 and y[i] > 0:
+#         num2 += 1
+#     if x[i] < 0 and y[i] < 0:
+#         num3 += 1
+#     if x[i] > 0 and y[i] < 0:
+#         num4 += 1
+# print(f'Первая четверть: {num1}')
+# print(f'Вторая четверть: {num2}')
+# print(f'Третья четверть: {num3}')
+# print(f'Четвертая четверть: {num4}')
