@@ -1,406 +1,432 @@
-from hmac import new
-import random
-import re
-# -------------------------------
-# Задача №1
-# n = 123
-# n1 = int(n/100)
-# print(n1)
-# n2 = int(n/10)-int(n1*10)
-# print(n2)
-# n3 = int(n % 10)
-# print(n3)
-# res = n1+n2+n3
-# print(res)
-
-# Задача №2
-# n = 6
-# n2 = int(n*4)
-# print(int(n/6), int(n2/6), int(n/6))
-
-# Задача №3
-# n = 357753
-# n1 = int(((n/1000))/100)
-# print(n1)
-# n2 = int(((n/1000))/10)-int(n1*10)
-# print(n2)
-# n3 = int(((n/1000)) % 10)
-# print(n3)
-# res1 = n1+n2+n3
-# print(res1)
-# z1 = int((n % 1000)/100)
-# print(z1)
-# z2 = int(((n % 1000)/10) - int(z1*10))
-# print(z2)
-# z3 = int((n % 1000) % 10)
-# print(z3)
-# res2 = z1+z2+z3
-# print(res2)
-
-# if (res1 == res2):
-#     print("yes")
-# else:
-#     print("no")
+# # ПАЛИНДРОМ---------------------------------------------------
+# class Solution(object):
+#     def isPalindrome(self, x):
+#         """
+#         :type x: int
+#         :rtype: bool
+#         """
+#         x = str(x)
+#         end = int(round(len(x)/2))
+#         is_palindrome = True
+#         for i in range(end):
+#             if x[i] != x[-i-1]:
+#                 is_palindrome = False
+#                 break
+#             else:
+#                 is_palindrome = True
+#         return is_palindrome
 
 
-# Задача №4
-# a=3
-# b=2
-# c=4
-# if c == 1:
-#     print("no")
-# elif c % a == 0 or c % b == 0:
-#     print("yes")
-# elif c < a * b and c not in [a, b]:
-#     print("yes")
-# else:
-#     print("no")
-
-# ---------Орел и решка-------------
-# Дана строка текста, состоящая из букв русского алфавита "О" и "Р". Буква "О" – соответствует выпадению Орла, а буква "Р" – соответствует выпадению Решки.
-# Напишите программу, которая подсчитывает наибольшее количество подряд выпавших Решек.
-# На вход программе подается строка текста, состоящая из букв русского алфавита "О" и "Р".
-# Sample Input 1:
-# ОРРОРОРООРРРО
-# Sample Output 1:
-# 3
-# ------------------------------
-# n = "ОРРРРОРООРРРО"  # ответ - 3
-# sum = 0                     # сумма последовательных элементов строки
-# max_count = 0
-# for char in n:        # перебор элементов строки
-#     if char == 'Р':      # если выпала "РЕШКА"
-#         sum += 1            # складываем
-#         max_count = max(max_count, sum)
-#     else:
-#         sum = 0            # обнуляем счетчик
-# print(max_count)
+# x = int(input())
+# solution = Solution()
+# print(solution.isPalindrome(abs(x)))
 
 
-# Задача №1
-# На столе лежат n монеток. Некоторые из монеток лежат вверх решкой, а некоторые – гербом.
-# задача - определить минимальное количество монеток, которые нужно перевернуть, чтобы все монетки лежали одной и той же стороной вверх.
-# Входные данные: программе подается список coins, где coins[i] равно 0, если i-я монетка лежит гербом вверх, и равно 1, если i-я монетка лежит решкой вверх. Размер списка не превышает 1000 элементов.
-# Выходные данные: Программа должна вывести одно целое число - минимальное количество монеток, которые нужно перевернуть.
-# coins = [0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0,
-#          0, 1, 0, 0, 1, 0, 1, 0]  # ответ 12 - 8
-# # -----1------
-# # print(coins.count(0) if coins.count(0) < coins.count(1) else coins.count(1))
-# # -----2-----
-# if coins.count(0) > coins.count(1):
-#     print(coins.count(1))
-# else:
-#     print(coins.count(0))
+# ПЕРЕВОД ГРЕЧЕСКИХ ЦИФР-------------------------------------------
+# class Solution:
+#     def romanToInt(self, s: str) -> int:
+# sum = 0
+# for i in range(len(s)):
+#     if s[i] == "M":
+#         if i == 0:
+#             sum += 1000
+#         elif s[i-1] != "C":
+#             sum += 1000
+#         elif s[i-1] == "C":
+#             sum += 800
+#     if s[i] == "D":
+#         if i == 0:
+#             sum += 500
+#         elif s[i-1] != "C":
+#             sum += 500
+#         elif s[i-1] == "C":
+#             sum += 300
+#     if s[i] == "C":
+#         if i == 0:
+#             sum += 100
+#         elif s[i-1] != "X":
+#             sum += 100
+#         elif s[i-1] == "X":
+#             sum += 80
+#     if s[i] == "L":
+#         if i == 0:
+#             sum += 50
+#         elif s[i-1] != "X":
+#             sum += 50
+#         elif s[i-1] == "X":
+#             sum += 30
+#     if s[i] == "X":
+#         if i == 0:
+#             sum += 10
+#         elif s[i-1] != "I":
+#             sum += 10
+#         elif s[i-1] == "I":
+#             sum += 8
+#     if s[i] == "V":
+#         if i == 0:
+#             sum += 5
+#         elif s[i-1] != "I":
+#             sum += 5
+#         elif s[i-1] == "I":
+#             sum += 3
+#     if s[i] == "I":
+#         sum += 1
+
+# return sum
+# ВТОРОЙ ВАРИАНТ
+#         roman_values = {
+#             "I": 1,
+#             "V": 5,
+#             "X": 10,
+#             "L": 50,
+#             "C": 100,
+#             "D": 500,
+#             "M": 1000
+#         }
+#         sum = 0
+#         prev_value = 0
+#         for i in range(len(s)-1, -1, -1):
+#             current_value = roman_values[s[i]]
+#             if current_value < prev_value:
+#                 sum -= current_value
+#             else:
+#                 sum += current_value
+#             prev_value = current_value
+
+#         return sum
 
 
-# Задача №2
-# Петя и Катя – брат и сестра. Петя – студент, а Катя – школьница. Петя помогает Кате по математике.
-# Петя задумывает два натуральных числа X и Y (X,Y≤1000), а Катя должна их отгадать. Для этого Петя делает две подсказки.
-# Он называет сумму этих чисел S и их произведение P. Помогите Кате отгадать задуманные Петей числа.
-# Примечание: числа S и P задавать не нужно, они будут передаваться в тестах.
-# В результате вы должны вывести все возможные варианты чисел X и Y через пробел.
-# x, y = 8, 5  # загадано
-# s, p = 15, 56  # извесно
-# for i in range(1, s):
-#     if i * (s - i) == p:
-#         print(i, s - i)
+# s = input()
+# solution = Solution()
+# print(solution.romanToInt(s))
 
-# Задача №3 - Требуется вывести все целые степени двойки (т.е. числа вида 2k), не превосходящие числаN.
-# n = 10
-# i = 0
-# while (2 ** i) <= n:
-#     print(2 ** i)
-#     i += 1
-
-
-# Задача 1 - Требуется вычислить, сколько раз встречается некоторое число k в массиве list_1.
-# Найдите количество и выведите его.
-# list_1 = [1, 2, 3, 2, 5]
-# k = int(input("Какое число искать: "))
-# count = 0
-# for i in range(0, len(list_1)):
-#     if list_1[i] == k:
-#         count += 1
-# print(count)
+# НАЙТИ СУММУ ЧИСЕЛ--------------------------------------------
+# class Solution(object):
+#     def twoSum(self, nums, target):
+#         """
+#         :type nums: List[int]
+#         :type target: int
+#         :rtype: List[int]
+#         """
+#         # if nums[0] + nums[1] == target:
+#         #     return [0, 1]
+#         for i in range(len(nums)):
+#             for j in range(1, len(nums)):
+#                 if (nums[i] + nums[j] == target) and (i != j):
+#                     return [i, j]
 
 
-# Задача 2 - Требуется найти в массиве list_1 самый близкий по величине элемент к заданному числу k и вывести его.
-# list_1 = [1, 2, 3, 4, 5, 6, 7, 9, 12, 22, 55, 78]
-# k = int(input("Какое число искать: "))
-# num = list_1[0]
-# separate = abs(list_1[0]-k)
-# for i in range(0, len(list_1)):
-#     if abs(list_1[i] - k) < separate:
-#         num = list_1[i]
-#         separate = abs(list_1[i]-k)
-# print(num)
+# nums = [2, 5, 5, 11]
+# target = 10
+# solution = Solution()
+# print(solution.twoSum(nums, target))
 
-# ---------Сколько различных цифр в массиве
-# numbers = [1, 1, 2, 0, -1, 3, 4, 4]
-# count = len(set(numbers))
-# print(count)
+# НАЙТИ ОДИНАКОВЫЕ БУКВЫ В СЛОВЕ
+# from typing import List
+
+# class Solution:
+#     def longestCommonPrefix(self, strs: List[str]) -> str:
+#         if not strs:
+#             return ""
+
+#         # Находим самое короткое слово в списке
+#         shortest_word = min(strs, key=len)
+
+#         # Перебираем буквы самого короткого слова
+#         for i, char in enumerate(shortest_word):
+#             for z in strs:
+#                 if z[i] != char:
+#                     return shortest_word[:i]
+#         return shortest_word
 
 
-# --------Сдвиг массива на N элементов
-# sequence = [1, 2, 3, 4, 5]
-# print(sequence)
-# k = 3
-# result = sequence[-k:] + sequence[:-k]
+# strs = ["flower", "flow", "flight"]
+# solution = Solution()
+# print(solution.longestCommonPrefix(strs))
+
+
+# ПРОВЕРКА ЗАКРЫТОСТИ СКОБОК
+# class Solution:
+#     def isValid(self, s: str) -> bool:
+#         is_Valid = True
+#         for i in range(len(s)):
+#             if s[i] == "(" and (s[i+1] != ")" or s.find(")") < 0):
+#                 return False
+#             if s[i] == "{" and (s[i+1] != "}" or s.find("}") < 0):
+#                 return False
+#             if s[i] == "[" and (s[i+1] != "]" or s.find("]") < 0):
+#                 return False
+#         return is_Valid
+
+
+# s = "{[]}"
+# solution = Solution()
+# print(solution.isValid(s))
+
+# ВТОРОЙ ВАРИАНТ РЕШЕНИЯ
+# class Solution:
+#     def isValid(self, s: str) -> bool:
+#         stack = []  # Создаем массив последовательности СТЕК
+#         mapping = {")": "(", "}": "{", "]": "["}  # Используем словарь
+#         for char in s:  # Перебираем символы
+#             if char in mapping:  # Проверяем словарь
+#                 top_element = stack.pop() if stack else '#'
+#                 if mapping[char] != top_element:  # Проверяем
+#                     return False
+#             else:
+#                 stack.append(char)  # Добавляем символ в стэк
+#         return not stack  # Проверяем пустой ли стек
+
+
+# # s = "(){}[]"
+# # s = "{[((]))]}"
+# s = "(("
+# solution = Solution()
+# print(solution.isValid(s))
+
+
+# -------------------Вывод двух списков
+# from typing import List
+# class Solution:
+#     def getConcatenation(self, nums: List[int]) -> List[int]:
+#         return nums + nums
+
+# nums = [1, 2, 1]
+# solution = Solution()
+# print(solution.getConcatenation(nums))
+
+# ----------------------Количество пар
+# class Solution:
+#     def numIdenticalPairs(self, nums: List[int]) -> int:
+#         z = 0
+#         for i in range(0, len(nums)):
+#             for j in range(i+1, len(nums)):
+#                 if nums[i] == nums[j]:
+#                     z += 1
+#         return z
+
+
+# nums = [1, 1, 1, 1]
+# solution = Solution()
+# print(solution.numIdenticalPairs(nums))
+
+
+# ----------------КОличество пар соотношений прямоугольников
+# from typing import List
+# from collections import defaultdict
+
+
+# class Solution:
+# def InterchangeableRectangles(self, rectangles: List[List[int]]) -> int:
+# z = 0
+# for i in range(len(rectangles)):
+#     for j in range(i+1, len(rectangles)):
+#         if rectangles[i][0]/rectangles[i][1] == rectangles[j][0]/rectangles[j][1]:
+#             z += 1
+# return z
+
+#     def InterchangeableRectangles(self, rectangles: List[List[int]]) -> int:
+#         ratios = defaultdict(int)
+#         count = 0
+#         for width, height in rectangles:
+#             ratio = width / height
+#             count += ratios[ratio]
+#             ratios[ratio] += 1
+#         return count
+
+
+# rectangles = [[4, 8], [3, 6], [10, 20], [15, 30]]
+# solution = Solution()
+# print(solution.InterchangeableRectangles(rectangles))
+
+
+# ---------------- Подсчет неправильных пар------------------
+# from typing import List
+# from collections import defaultdict
+    # def countBadPairs(self, nums: List[int]) -> int:
+    #     count = 0
+    #     diff_dict = {}
+    #     for j, num in enumerate(nums):
+    #         diff = j - num
+    #         if diff in diff_dict:
+    #             count += diff_dict[diff]
+    #             diff_dict[diff] += 1
+    #         else:
+    #             diff_dict[diff] = 1
+    #     return count
+# import collections
+# -----------------Второе решение---------------
+# class Solution:
+#     def countBadPairs(self, nums: List[int]) -> int:
+#         sum = collections.defaultdict(int)
+#         bad_pairs = 0
+#         for i, num in enumerate(nums):
+#             req_sum = i - num
+#             bad_pairs += i - sum[req_sum]
+#             sum[req_sum] += 1
+#             print(sum.items())
+#         return bad_pairs
+
+
+# nums = [4,1,3,3] # 5
+# # nums = [1,2,3,4,5] # 0
+# solution = Solution()
+# print(solution.countBadPairs(nums))
+
+
+# -----------ПОДСЧЕТ КОЛИЧЕСТВА ТРОЕК-------------
+# from typing import List
+
+# class Solution:
+#     def arithmeticTriplets(self, nums: List[int], diff: int) -> int:
+#         count = 0
+#         for i in range(len(nums)):
+#             for j in range(len(nums)):
+#                 for k in range(len(nums)):
+#                      if (nums[i] < nums[j] < nums[k]) and (nums[j] - nums[i] == diff) and (nums[k] - nums[j] == diff):
+#                         count += 1
+#         return count
+
+# nums = [0, 1, 4, 6, 7, 10]  
+# diff = 3 # ожидаемый результат: 2
+# solution = Solution()
+# print(solution.arithmeticTriplets(nums, diff))
+
+
+# ---------ОБЪЕДИНЕНИЕ ДВУХ СПИСКОВ---------------------
+# from typing import Optional
+
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+# class Solution:
+#     @staticmethod
+#     def mergeTwoLists(list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+#         dummy = ListNode()
+#         current = dummy
+
+#         while list1 and list2:
+#             if list1.val < list2.val:
+#                 current.next = list1
+#                 list1 = list1.next
+#             else:
+#                 current.next = list2
+#                 list2 = list2.next
+#             current = current.next
+
+#         if list1:
+#             current.next = list1
+#         elif list2:
+#             current.next = list2
+
+#         return dummy.next
+
+# # Пример использования
+# list1 = ListNode(1, ListNode(2, ListNode(4)))
+# list2 = ListNode(1, ListNode(3, ListNode(4)))
+
+# # Создаем экземпляр класса Solution
+# solution = Solution()
+
+# # Вызываем метод mergeTwoLists на экземпляре класса Solution
+# result = solution.mergeTwoLists(list1, list2)
+
+# # Выводим результат
+# while result:
+#     print(result.val, end=", ")
+#     result = result.next
+
+
+# ------------ИСКЛЮЧЕНИЕ НЕНУЖНЫХ ЦИФР-----------------
+# from typing import List
+# class Solution:
+#     def removeElement(self, nums: List[int], val: int) -> int:
+#         sum = len(nums)
+#         povtor = 1
+#         while povtor != 0:
+#             povtor = 0
+#             for i in range(len(nums)):
+#                 if nums[i] == val:
+#                     sum -= 1
+#                     povtor += 1
+#                     nums.pop(i)
+#                     nums.append("_")               
+#         return sum
+        
+# # nums = [3, 2, 2, 3]
+# nums = [0,1,2,2,3,0,4,2]
+# val = 2
+# solution = Solution()
+# result = solution.removeElement(nums, val)
+# print(result)
+# print(nums)
+
+
+
+# ------------ИСКЛЮЧЕНИЕ Дубликатов-----------------
+# from typing import List
+# class Solution:
+#     def removeDuplicates(self, nums: List[int]) -> int:
+#         exit = len(set(nums))
+#         povtor = 1
+#         while povtor != 0:
+#             povtor = 0
+#             for i in range(len(nums)-1):
+#                 if nums[i] == nums[i+1] and nums[i] != '_':
+#                     nums.pop(i)
+#                     nums.append("_")
+#                     povtor += 1
+#                     break     
+#         return exit
+        
+# # nums = [3, 2, 2, 3]
+# nums = [0,0,0,0,2]
+# # nums = [0,0,1,1,1,2,2,3,3,4]
+# solution = Solution()
+# result = solution.removeDuplicates(nums)
+# print(result)
+# print(nums)
+
+
+# ---------------ПРЕОБРАЗОВАНИЕ Цельсий в Кельвин, Фаренгейт-------------
+# from typing import List
+# class Solution:
+#     def convertTemperature(self, celsius: float) -> List[float]:
+#         kelvin = celsius + 273.15
+#         forengeyt = celsius * 1.80 + 32.00
+#         exit = [kelvin, forengeyt]
+#         return exit 
+        
+        
+# celsius = 36.50
+# solution = Solution()
+# result = solution.convertTemperature(celsius)
 # print(result)
 
-# В настольной игре Скрабл (Scrabble) каждая буква имеет определенную ценность.
-# В случае с английским алфавитом очки распределяются так:
-# А русские буквы оцениваются так:
-# А, В, Е, И, Н, О, Р, С, Т – 1 очко;
-# Д, К, Л, М, П, У – 2 очка;
-# Б, Г, Ё, Ь, Я – 3 очка;
-# Й, Ы – 4 очка;
-# Ж, З, Х, Ц, Ч – 5 очков;
-# Ш, Э, Ю – 8 очков;
-# Ф, Щ, Ъ – 10 очков.
-# Напишите программу, которая вычисляет стоимость введенного пользователем слова k и выводит его.
-# Будем считать, что на вход подается только одно слово, которое содержит либо только английские, либо только русские буквы.
-# # Пример:
-# elements = [['A', 'E', 'I', 'O', 'U', 'L', 'N', 'S', 'T', 'R', 'А', 'В', 'Е', 'И', 'Н', 'О', 'Р', 'С', 'Т'],  # – 1 очко;
-#             ['D', 'G', 'Д', 'К', 'Л', 'М', 'П', 'У'],  # – 2 очка;
-#             ['B', 'C', 'M', 'P', 'Б', 'Г', 'Ё', 'Ь', 'Я'],  # – 3 очка;
-#             ['F', 'H', 'V', 'W', 'Y', 'Й', 'Ы'],  # – 4 очка;
-#             ['K', 'Ж', 'З', 'Х', 'Ц', 'Ч'],  # – 5 очков;
-#             ['J', 'X', 'Ш', 'Э', 'Ю'],  # – 8 очков;
-#             ['Q', 'Z', 'Ф', 'Щ', 'Ъ']]  # – 10 очков.
-# k = input("Введите текст: ")
-# arr = list(k.upper())
-# summ = 0
-# for i in range(0, len(arr)):
-#     for j, row in enumerate(elements):
-#         if arr[i] in row:
-#             if j == 5:
-#                 summ += (j+3)
-#             elif j == 6:
-#                 summ += (j+4)
-#             else:
-#                 summ += (j+1)
-# print("Стоимость слова: ", summ)
+
+# ---------ВЫВОД НОК ----------------
+# class Solution:
+#     def smallestEvenMultiple(self, n: int) -> int:
+#         return (n%2 + 1)*n
+        
+# n = 5
+# solution = Solution()
+# print(solution.smallestEvenMultiple(n))
 
 
-# Задача №1
-# Даны два неупорядоченных набора целых чисел (может быть, с повторениями).
-# Выдать без повторений в порядке возрастания все те числа, которые встречаются в обоих наборах.
-# На вход подается 2 числа через пробел: n - кол-во элементов первого множества. m - кол-во элементов второго множества.
-# Затем подаются элементы каждого множества через пробел в виде строки.
-# def Rand():
-#     return random.randrange(1, 100)
-
-
-# n = int(input("Введите количество элементов N : "))
-# list_N = str(Rand())  # Создаем первй текстовый список
-# for _ in range(n-1):
-#     list_N = list_N + " " + str(Rand())  # вводим рандомные цифры
-# arr_N = list_N.split(" ")  # создаем первый текстовый массив
-# print(arr_N)
-
-# m = int(input("Введите количество элементов M : "))
-# list_M = str(Rand())  # создаем второй текстовый список
-# for _ in range(m-1):
-#     list_M = list_M + " " + str(Rand())  # вводим рандомные цифры
-# arr_M = list_M.split(" ")  # создаем второй текстовый массив
-# print(arr_M)
-
-# list_S = list_N + " " + list_M    # создаем объединенный текстовый список
-# arr_New = list_S.split(" ")  # создаем объединенный текстовый массив
-# my_numbers = [int(x) for x in arr_New]  # создаем объединенный цифровой массив
-
-# for i in range(1, len(my_numbers)):     # сортируем по возрастанию
-#     for j in range(1, len(my_numbers)):
-#         if (my_numbers[j-1] > my_numbers[j]):
-#             temp = my_numbers[j]
-#             my_numbers[j] = my_numbers[j-1]
-#             my_numbers[j-1] = temp
-
-# print(my_numbers)
-
-
-# def Sort(numbers):    # метод удаления повторяющихся цифр
-#     for i in range(1, len(numbers)):
-#         if numbers[i-1] == numbers[i]:
-#             numbers.pop(i)
-#             Sort(numbers)
-#             return numbers
-
-
-# my_numbers = Sort(my_numbers)  # Удаляем повторяющиеся цифры
-
-# print(my_numbers)
-
-# Задача №2
-# написать программу, которая определит максимальное число ягод, которое может собрать один собирающий модуль за один заход,
-# находясь перед некоторым кустом грядки.
-# На вход программе подается список arr, где arr[i] (1 ≤ arr[i] ≤ 1000) - урожайность i-го куста черники.
-# Размер списка не превышает 1000 элементов.
-# Программа должна вывести одно целое число - максимальное количество ягод, которое может собрать собирающий модуль,
-# находясь перед некоторым кустом грядки.
-# arr = [16, 42, 23, 14, 25, 16, 7, 39, 12, 22, 55, 78]
-# print(arr)
-# summElements = 0
-# maxSummElements = 0
-# for i in range(2, len(arr)):
-#     summElements = arr[i] + arr[i-1] + arr[i-2]
-#     if maxSummElements < summElements:
-#         maxSummElements = summElements
-
-# print(maxSummElements)
-
-
-# # ДЛЯ ГОВНОТЕРМИНАЛА
-# var1 = '4 4'
-# var2 = '5 6 7 8'
-# var3 = '6 7 8 9'
-# list2 = var2.split()
-# list3 = var3.split()
-# # Преобразовать списки в множества
-# set2 = set(list2)
-# set3 = set(list3)
-# # Найти пересечение множеств
-# result_set = set2.intersection(set3)
-# # Преобразовать множество в список и отсортировать
-# result_list = sorted(list(result_set))
-# result_list = " ".join(result_list)
-# # Вывести результат
-# print(result_list)
-
-
-# a = 3
-# b = 10
-# def sum(n, m):
-#     if m == 0:
-#         return n
-#     return sum(n, m-1)+1
-# n = sum(a, b)
-# print(n)
-
-
-# Определить индексы элементов массива (списка), значения которых принадлежат заданному диапазону
-# (т.е. не меньше заданного минимума и не больше заданного максимума).
-# На вход подается список с элементами list_1 и границы диапазона в виде чисел min_number, max_number.
-# list_1 = [-5, 9, 0, 3, -1, -2, 1, 4, -2, 10, 2, 0, -9, 8, 10, -9, 0, -5, -5, 7]
-# min_number = 0
-# max_number = 10
-
-# for i in range(0, len(list_1)):
-#     if (list_1[i] >= min_number):
-#         if (list_1[i] <= max_number):
-#             print(i)
-
-
-# def func(min_number, max_number, i):
-#     if (i <= len(list_1)-1):
-#         if (max_number >= list_1[i] >= min_number):
-#             print(i)
-#             func(min_number, max_number, i+1)
-#         else:
-#             func(min_number, max_number, i+1)
-#     else:
-#         return
-
-
-# func(min_number, max_number, 0)
-# Заполните массив элементами арифметической прогрессии.
-# Её первый элемент a1 , разность d и количество элементов n будет задано автоматически.
-# Формула для получения n-го члена прогрессии: an = a1 + (n-1) * d.
-# a1 = 5
-# d = -1
-# n = 10
-
-# a1 = 2  # первый
-# d = 3  # разница
-# n = 4  # количество
-# for i in range(a1, a1 + (n) * d, d):
-#     print(i)
-
-
-# def progress(a1, d, n):
-#     if (n > 1):
-#         progress(a1, d, n-1)
-#         return print(a1 + (n-1) * d)
-#     if (n == 1):
-#         return print(a1)
-
-
-# progress(a1, d, n)
-
-
-# Напишите функцию print_operation_table(operation, num_rows, num_columns),
-# которая принимает в качестве аргумента функцию, вычисляющую элемент по номеру строки и столбца.
-# Аргументы num_rows и num_columns указывают число строк и столбцов таблицы, которые должны быть распечатаны.
-# Нумерация строк и столбцов идет с единицы (подумайте, почему не с нуля).
-# Если строк меньше двух, выдайте текст
-# ОШИБКА! Размерности таблицы должны быть больше 2!.
-# Примечание: бинарной операцией называется любая операция, у которой ровно два аргумента, как, например, у операции умножения.
-
-# def print_operation_table(operation, num_rows, num_columns):
-#     if (num_rows < 2):
-#         print("ОШИБКА! Размерности таблицы должны быть больше 2!")
-#     else:
-#         #  Первая строка
-#         row = []
-#         for i in range(1, num_rows+1):
-#             row.append(str(i))
-#         print(" ".join(row))
-#         # Вторая и последующие строки
-#         for i in range(2, num_rows+1):
-#             row = []
-#             row.append(str(i))
-#             for j in range(2, num_columns+1):
-#                 # Вычисляем значение элемента таблицы
-#                 element = operation(i, j)
-#                 row.append(str(element))
-#             # Выводим строку таблицы на экран
-#             print(" ".join(row))
-
-# def print_operation_table(operation, num_rows, num_columns):
-#     if (num_rows >= 2 and num_columns >= 2):
-#         for i in range(1, num_rows+1):
-#             for j in range(1, num_columns+1):
-#                 if (i == 1):
-#                     print(j, end=' ')
-#                     continue
-#                 if (j == 1):
-#                     print(i, end=' ')
-#                     continue
-#                 result = operation(i, j)
-#                 print(result, end=' ')
-#             print("\t")
-#     else:
-#         print("ОШИБКА! Размерности таблицы должны быть больше 2!")
-
-
-# print_operation_table(lambda x, y: x - y, 4, 4)
-
-
-# Винни-Пух считает, что ритм есть, если число слогов (т.е. число гласных букв) в каждой фразе стихотворения одинаковое.
-# Фраза может состоять из одного слова, если во фразе несколько слов, то они разделяются дефисами.
-# Фразы отделяются друг от друга пробелами.
-# Стихотворение  Винни-Пух передаст вам автоматически в переменную stroka в виде строки.
-# В ответе напишите Парам пам-пам, если с ритмом все в порядке и Пам парам, если с ритмом все не в порядке.
-# Если фраза только одна, то ритм определить не получится и необходимо вывести: Количество фраз должно быть больше одной!.
-# stroka = 'пара-ра-рам рам-пам-папам па-ра-па-дам'
-# glasnyj = "а, у, о, ы, и, э, я, ю, ё, е"
-# fraza = stroka.split(' ')
-# slog = [0]*len(fraza)
-# yesorno = True
-# if (len(fraza) <= 1):
-#     print("Количество фраз должно быть больше одной!")
-# else:
-#     for i in range(0, len(fraza)):
-#         # print(fraza[i])
-#         for char in fraza[i]:
-#             if char.lower() in glasnyj:
-#                 slog[i] += 1
-#     # print(slog[i])
-#         if (i > 0):
-#             if (slog[i] != slog[i-1]):
-#                 yesorno = False
-#     if (yesorno == True):
-#         print("Парам пам-пам")
-#     else:
-#         print("Пам парам")
+# -------------Поиск Наибольшего делителя------------------
+from typing import List
+class Solution:
+    def findGCD(self, nums: List[int]) -> int:
+        mi = min(nums)
+        ma = max(nums)
+        for i in range(ma, 0, -1):
+            if ma%i == 0 and mi%i == 0:
+                return i
+    
+        
+n = [2,7,5,6,8,3,10]
+solution = Solution()
+print(solution.findGCD(n))
