@@ -2,8 +2,6 @@ from model import Model
 from view import View
 from controllers import ControllersCalc
 
-
-def run_calculator():
     # Создаем экземпляры классов
     model = Model()
     control = ControllersCalc(model)
