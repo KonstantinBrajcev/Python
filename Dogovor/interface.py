@@ -45,15 +45,39 @@ def create_interface(file_path, file_name):  # СОЗДАЕМ ОКНО прог�
     # Разрешаем вторую строку растягиваться
     frame_right.grid_rowconfigure(1, weight=1)
     # ---------Сохранить---------------
-    submit_button = tk.Button(frame_right, text="Сформировать", command=lambda: replace_text(file_path, _nomDog_.get(), _nameOrg_.get(), _cal_.get(), _predmetDog_.get(
-    ), _fin_.get(), _fioDir_.get(), _osnovanie_.get(), _adresOrg_.get(), _doljnost_.get(), _nameOrgSokr_.get(), sel_value.get()), width=15, height=2)
+    submit_button = tk.Button(frame_right, text="Сформировать", command=lambda:
+                              replace_text(file_path,  # Адрес файла
+                                           _cal_.get(),  # Календарь
+                                           _nomDog_.get(),  # Номер договора
+                                           _predmetDog_.get(),  # Предмет договора
+                                           _adressDog_.get(),  # Адрес подъемника
+                                           _fin_.get(),  # Финансирование
+                                           _cost_.get(),  # Сумма по договору
+                                           sel_value.get(),  # Тип договора
+                                           _unp_.get(),  # УНП
+                                           _okpo_.get(),  # ОКПО
+                                           _nameOrg_.get(),  # Наименование организации
+                                           _adresOrg_.get(),  # Адрес Организации
+                                           _nameOrgSokr_.get(),  # Сокращенное Название Организации
+                                           _fioDir_.get(),  # ФИО Директора
+                                           _doljnost_.get(),  # Должность руководителя
+                                           _osnovanie_.get(),  # Основание
+                                           _email_.get(),  # Электронная почта
+                                           _phone_.get(),  # Телефон
+                                           _nameBank_.get(),  # Наименование Банка
+                                           _adresBank_.get(),  # Адрес Банка
+                                           _iban_.get(),  # IBAN
+                                           _swift_.get()  # SWIFT
+                                           ), width=15, height=2)
     submit_button.grid(row=1, column=0, padx=5, pady=5, sticky="s")
     # ---------Выход--------------------
     exit_button = tk.Button(frame_right, text="Выход",
                             command=lambda: sys.exit(), width=15, height=2)
     exit_button.grid(row=2, column=0, padx=5, pady=5, sticky="s")
 
+    # -------------------------------------------------------------------
     # ----------------------ФРЭЙМ ДОГОВОР------------------------------
+    # -------------------------------------------------------------------
     frame_dog.grid_columnconfigure(0, minsize=130)
     frame_dog.grid_columnconfigure(1, minsize=180)
     frame_dog.grid_columnconfigure(2, minsize=110)
@@ -64,7 +88,7 @@ def create_interface(file_path, file_name):  # СОЗДАЕМ ОКНО прог�
     # ---------Номер договора---------
     label1 = tk.Label(frame_dog, text="Номер договора:")
     label1.grid(row=0, column=2, padx=10, pady=5, sticky="e")
-    # ---------Форма ввода номера----
+    # ---------Ввод номера договора----
     _nomDog_ = tk.Entry(frame_dog)
     _nomDog_.grid(row=0, column=3, padx=10, pady=5, sticky="ew")
     _nomDog_.bind("<KeyRelease>", lambda event: show_selected(_nomDog_, _cal_))
@@ -80,39 +104,46 @@ def create_interface(file_path, file_name):  # СОЗДАЕМ ОКНО прог�
                lambda event: show_selected(_nomDog_, _cal_))
 
     # ---------Предмет договора------------------
-    label6 = tk.Label(frame_dog, text="Предмет договора:")
+    label6 = tk.Label(frame_dog, text="Предмет договора/подъемник:")
     label6.grid(row=1, column=0, padx=10, pady=5, sticky="e")
-    # ---------Форма ввода предмета договора------
+    # ---------Ввод предмета договора------
     _predmetDog_ = tk.Entry(frame_dog)
-    _predmetDog_.grid(row=1, column=1, columnspan=3,
-                      padx=10, pady=5, sticky="ew")
+    _predmetDog_.grid(row=1, column=1, padx=10, pady=5, sticky="ew")
+    # ---------Адрес договора------------------
+    label23 = tk.Label(frame_dog, text="Адрес оборудования:")
+    label23.grid(row=1, column=2, padx=10, pady=5, sticky="e")
+    # ---------Ввод предмета договора------
+    _adressDog_ = tk.Entry(frame_dog)
+    _adressDog_.grid(row=1, column=3, padx=10, pady=5, sticky="ew")
     # ---------Финансирование------------------
     label20 = tk.Label(frame_dog, text="Финансирование:")
     label20.grid(row=2, column=0, padx=10, pady=5, sticky="e")
-    # ---------Форма ввода предмета договора------
+    # ---------Ввод финансирования------
     _fin_ = tk.Entry(frame_dog)
     _fin_.grid(row=2, column=1, padx=10, pady=5, sticky="ew")
-    # ---------Финансирование------------------
+    # ---------Сумма договора------------------
     label22 = tk.Label(frame_dog, text="Сумма:")
     label22.grid(row=2, column=2, padx=10, pady=5, sticky="e")
-    # ---------Форма ввода предмета договора------
+    # ---------Ввод суммы договора------
     _cost_ = tk.Entry(frame_dog)
     _cost_.grid(row=2, column=3, padx=10, pady=5, sticky="ew")
 
-    # ---------Чекбокс Обслуживание----------------
+    # ----------Выбор ТИПА договора----------------
     label21 = tk.Label(frame_dog, text="Вид договора:")
     label21.grid(row=3, column=0, padx=10, pady=5, sticky="e")
-
+    # ---------Чекбокс Обслуживание----------------
     radiobutton_1 = tk.Radiobutton(
         frame_dog, text="Долгосрочный", variable=sel_value, value="долгосрочный", command=lambda: show_selected(_nomDog_, _cal_))
     radiobutton_1.grid(row=3, column=1, padx=10, pady=5, sticky="e")
-    # ---------Чекбокс Ремонт
+    # ---------Чекбокс Ремонт----------------------
     radiobutton_2 = tk.Radiobutton(
         frame_dog, text="Разовый", variable=sel_value, value="разовый", command=lambda: show_selected(_nomDog_, _cal_))
     radiobutton_2.grid(row=3, column=1, padx=10, pady=5, sticky="w")
     sel_value.set("разовый")
 
-    # ----------------------------ФРЭЙМ ОРГАНИЗАЦИЯ-----------------------------
+    # -------------------------------------------------------------------
+    # ----------------------------ФРЭЙМ ОРГАНИЗАЦИЯ---------------------
+    # -------------------------------------------------------------------
     frame_org.grid_columnconfigure(0, minsize=160)
     frame_org.grid_columnconfigure(2, minsize=100)
     frame_org.grid_columnconfigure(1, weight=1)
@@ -189,7 +220,9 @@ def create_interface(file_path, file_name):  # СОЗДАЕМ ОКНО прог�
     _phone_ = tk.Entry(frame_org, width=70)
     _phone_.grid(row=5, column=3, padx=10, pady=5, sticky="ew")
 
-    # --------------------------ФРЭЙМ БАНК-------------------------------------
+    # -------------------------------------------------------------------
+    # --------------------------ФРЭЙМ БАНК------------------------------
+    # -------------------------------------------------------------------
     frame_bank.grid_columnconfigure(1, weight=1)
     # ---------Наимеование банка-----------
     label9 = tk.Label(frame_bank, text='Название банка:')
@@ -221,7 +254,9 @@ def create_interface(file_path, file_name):  # СОЗДАЕМ ОКНО прог�
     _swift_ = tk.Entry(frame_bank, width=70)
     _swift_.grid(row=2, column=3, padx=10, pady=5, sticky="ew")
 
+    # -----------------------------------------------------------
     # ----------------------ФРЭЙМ ФАЙЛ--------------------------
+    # -----------------------------------------------------------
     frame_file.grid_columnconfigure(0, weight=1)
     # ---------Индикация открытия файла-----------
     if os.path.isfile(file_path):
@@ -239,7 +274,9 @@ def create_interface(file_path, file_name):  # СОЗДАЕМ ОКНО прог�
                             command=open_file, width=15, height=3)
     open_button.grid(row=0, column=1, rowspan=2, padx=5, pady=5, sticky="e")
 
-    # --------------------------ФРЭЙМ СОСТОЯНИЕ--------------------------------
+    # -------------------------------------------------------------------
+    # --------------------------ФРЭЙМ СОСТОЯНИЕ-------------------------
+    # -------------------------------------------------------------------
 
     popup.update_idletasks()  # Обновление размеров и расположения виджетов
     popup.columnconfigure(0, weight=1)  # Растягивание по горизонтали
@@ -249,26 +286,24 @@ def create_interface(file_path, file_name):  # СОЗДАЕМ ОКНО прог�
 
     # center_window(root)
     popup.state("zoomed")
-    center_window(popup)
+    # center_window(popup)
 
     root.mainloop()
 
 
-def center_window(window):
-    window.update_idletasks()
-    width = window.winfo_width()
-    height = window.winfo_height()
-    screen_width = window.winfo_screenwidth()
-    screen_height = window.winfo_screenheight()
-
-    x = (screen_width - width) // 2
-    y = (screen_height - height) // 2
-
-    window.geometry('+{}+{}'.format(x, y))
+# def center_window(window):
+#     window.update_idletasks()
+#     width = window.winfo_width()
+#     height = window.winfo_height()
+#     screen_width = window.winfo_screenwidth()
+#     screen_height = window.winfo_screenheight()
+#     x = (screen_width - width) // 2
+#     y = (screen_height - height) // 2
+#     window.geometry('+{}+{}'.format(x, y))
 
 
 def submit_values(file_path, _nomDog_, _nameOrg_, _cal_, _predmetDog_, _fioDirector_, _osnovanie_, _adresOrg_):
-    # Нажимаем КНОПКУ СФОРМИРОВАТЬ
+    # Нажимаем кнопку СФОРМИРОВАТЬ
     nomDog = _nomDog_.get()     # Получаем номер договора
     nameOrg = _nameOrg_.get()   # Получаем наименование организации
     cal = _cal_.get()           # Получаем ДАТУ
@@ -281,7 +316,7 @@ def submit_values(file_path, _nomDog_, _nameOrg_, _cal_, _predmetDog_, _fioDirec
                  predmetDog, fioDirector, osnovanie, adresOrg)
 
 
-def open_file():  # ПРИ Открытии файла
+def open_file():  # При открытии файла
     file_path = filedialog.askopenfilename(
         filetypes=[("Word files", "*.docx"), ("All files", "*.*")])
     if file_path:

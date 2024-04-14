@@ -15,9 +15,31 @@ def find_paragraph(doc, target_text):
     return -1
 
 
-def replace_text(path, _nomDog_, _nameOrg_, _cal_, _predmetDog_, _fin_, _fioDir_, _osnovanie_, _adresOrg_, _doljnost_, _nameOrgSokr_, indicate):
+def replace_text(path,  # Адрес файла
+                 _cal_,  # Календарь
+                 _nomDog_,  # Номер договора
+                 _predmetDog_,  # Предмет договора
+                 _adressDog_,  # Адрес подъемника
+                 _fin_,  # Финансирование
+                 _cost_,  # Сумма по договору
+                 sel_value,  # Тип договора # indicate
+                 _unp_,  # УНП
+                 _okpo_,  # ОКПО
+                 _nameOrg_,  # Наименование организации
+                 _adresOrg_,  # Адрес Организации
+                 _nameOrgSokr_,  # Сокращенное Название Организации
+                 _fioDir_,  # ФИО Директора
+                 _doljnost_,  # Должность руководителя
+                 _osnovanie_,  # Основание
+                 _email_,  # Электронная почта
+                 _phone_,  # Телефон
+                 _nameBank_,  # Наименование Банка
+                 _adresBank_,  # Адрес Банка
+                 _iban_,  # IBAN
+                 _swift_  # SWIFT
+                 ):
     # -----Вносим тип договора----------------
-    _text_ = raz.get_text(indicate)
+    _text_ = raz.get_text(sel_value, _fin_, _predmetDog_, _adressDog_)
     doc = docx.Document(path)
     index = find_paragraph(doc, "[_text_]")
     for text in reversed(_text_):
