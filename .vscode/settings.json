@@ -1,7 +1,10 @@
 {
     "cSpell.words": [
         "Объект",
-        "flask"
+        "controller",
+        "flask",
+        "levelname"
     ],
-    "python.analysis.typeCheckingMode": "basic"
+    "python.analysis.typeCheckingMode": "off",
+    "editor.formatOnSave": false
 }
